@@ -33,7 +33,8 @@ html,
 body {
 	margin:0;
 	padding:0;
-	height:100%;
+  width: 100%;
+  height: 100%;
 }
 /* /END RESET */
 body {
@@ -190,6 +191,47 @@ html[xmlns] .clearfix {
 
 }
 
+ /* The Modal (background) */
+.modal {
+  /* Hidden by default */
+  /* display: none; */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  color: black;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  max-width: 666px;
+}
+
+/* The Close Button */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 #title{
   margin: 1rem;
   width: auto;
@@ -200,45 +242,19 @@ html[xmlns] .clearfix {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  min-height: 100%;
   width: 100vw;
-  height: 100%;
+  height: auto;
   background: var(--color-50);
   padding: 1rem;
-  margin: 1rem;
+  /* margin: 1rem; */
 
 
 }
 
-#container{
-  background: var(--color-500);
-  border: 0.25rem solid var(--color-900);
-  border-radius: 0.375rem;
-  max-width: 400px;
-	max-height: 600px;
-  width: 100%;
-  height: auto;
-  margin: 0;
-  padding: 0.5rem;
-  display: grid;
-  gap: 0.5rem;
-  justify-content: center;
-  align-content: center;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(6, 1fr);
 
-  /* grid-auto-columns: 1fr; */
-  /* grid-auto-rows: 1fr; */
-  grid-template-areas:
-    'display display display display'
-    'allClear plusMinus remainder divide'
-    'seven eight nine multiply'
-    'four five six subtract'
-    'one two three add'
-    'zero zero decimal equal';
 
-}
-
-#display{
+/* #display{
   grid-area: display;
   display: block;
   flex-direction: row;
@@ -256,11 +272,28 @@ html[xmlns] .clearfix {
   width: 100%;
   word-wrap: break-word;
   overflow-wrap: break-word;
+} */
+
+/* Form styles */
+fieldset{
+  display: flex;
+  flex-direction: column;
 }
 
-#zeroButton{
-/* aspect-ratio: 2/1; */
-grid-area: zero;
+label{
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+input{
+  margin: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+
 }
 
 button{
@@ -294,16 +327,91 @@ button:active{
 
 }
 
-.rightRow{
 
-  background: yellow;
-  color: var(--color-900);
+#container{
+  /* background: var(--color-500); */
+  /* border: 0.25rem solid var(--color-900); */
+  border-radius: 0.375rem;
+  max-width: 1200px;
+  min-width: 225px;
+  /* min-height: 100%; */
+  width: 80vw;
+  height: 100%;
+  margin: 0;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: center;
+  align-content: start;
+  /* display: grid; */
+  /* gap: 0.5rem; */
+  /* justify-content: center; */
+  /* align-content: center; */
+  /* grid-template-columns: repeat(4, 1fr); */
+  /* grid-template-rows: repeat(6, 1fr); */
+  /* grid-auto-columns: 1fr; */
+  /* grid-auto-rows: 1fr; */
+  /* grid-template-areas:
+    'display display display display'
+    'allClear plusMinus remainder divide'
+    'seven eight nine multiply'
+    'four five six subtract'
+    'one two three add'
+    'zero zero decimal equal'; */
+
 }
 
-.topRow{
-  background: orange;
-  color: var(--color-900);
+#container > * {
+  margin: 1rem .5rem;
 }
+
+.cardWrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  width: 225px;
+  padding: 1rem;
+}
+
+#addBookButton {
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  height: 100px;
+  width: 100px;
+  font-size: 75px;
+  transition: all 0.3s;
+}
+
+#addBookButton:hover{
+  height: 200px;
+  width: 200px;
+  font-size: 150px;
+}
+
+  #addBookButton:focus{
+  height: 200px;
+  width: 200px;
+  font-size: 150px;
+}
+
+.bookCard{
+  background: black;
+  border: 1px solid #888;
+  height: 300px;
+  width: 225px;
+  padding: 1rem;
+}
+
+/* #addBookButton { */
+  /* position: fixed; Stay in place */
+  /* z-index: 1; Sit on top */
+  /* right: 2rem; */
+  /* bottom: 2rem; */
+/* } */
 
 
 
