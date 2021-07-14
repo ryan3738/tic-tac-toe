@@ -1,13 +1,95 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Constructor</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+<main>
+  <!-- 1. Button for user to show new book modal -->
+<!-- <button type="button" id="addBookButton" class="button card">
+  +
+</button> -->
+  <!-- 2. Modal that allows user to input new book info and submit-->
+  <div id="newBookModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>Add a New Book</h2>
+      <form>
+        <fieldset>
+          <label htmlFor="title" >Title
+            <input
+            required
+            type="text"
+            id="title"
+            name="title"
+            placeholder='title'
+            autoComplete='title'
+            />
+          </label>
+          <label htmlFor="author" >Author
+            <input
+            required
+            type="text"
+            id="author"
+            name="author"
+            placeholder='author'
+            autoComplete='author'
+            />
+          </label>
+          <label htmlFor="pages" >Pages
+            <input
+            required
+            type="number"
+            id="pages"
+            name="pages"
+            placeholder='pages'
+            autoComplete='pages'
+            />
+          </label>
+          <label htmlFor="read" >Read
+            <input
+            required
+            type="checkbox"
+            id="read"
+            name="read"
 
+            autoComplete='read'
+            />
+          </label>
+          <button type="submit" id="submiteNewBookButton" class="button">Submit</button>
+        </fieldset>
+        </form>
+    </div>
+  </div>
+
+<div id="container">
+
+  <div class="bookCard"></div>
+  <div class="bookCard"></div>
+  <div class="bookCard"></div>
+  <div class="cardWrapper">
+
+    <button type="button" id="addBookButton">
+      +
+    </button>
+  </div>
+<!-- 3. Display books in myLibrary array -->
+<!-- 4. Allow user to change read status of book-->
+<!-- 5. Allow user to delete book from library -->
+
+</div>
+
+<!-- 6. Store users library in local storage -->
+
+
+</main>
     <!-- <script>
         //  title, author, the number of pages, and whether or not you have read the book
         function Book(title, author, pages, haveRead) {
