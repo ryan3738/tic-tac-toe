@@ -28,6 +28,14 @@ const myLibrary = [
   },
 ]
 
+function getId() {
+  // Create function that checks if id exists and assigns next availabe value
+}
+
+function addSomeBooks() {
+  // Create function to populate some books for testing
+}
+
 // 1. Make event listener for button to show modal for new book info
 
 // When the user clicks on the button, open the modal
@@ -64,28 +72,31 @@ function putBooksAway() {
   console.log('Cleaning up old books...')
   const oldBooks = container.querySelectorAll('div')
   oldBooks.forEach((book) => {
-    console.log(book)
     if (book.id !== 'notBook') {
       book.remove()
     }
   })
+  console.log('Bye bye old books...')
 }
 
+// Function that loops through the array and displays each book on the page.
+// 3. On myLibrary change update books that are displayed
 function displayBooks() {
-  // Clean up old books from display before displaying books
+  // Clean up old books from display before displaying library
   putBooksAway()
-  // Cycle through books in library and create a book card for each book
+  // Cycle through books in library and create a card for each book
   for (const eachBook of myLibrary) {
     const bookCard = document.createElement('div')
     const bookTitle = document.createElement('h2')
     const bookAuthor = document.createElement('p')
     const bookPages = document.createElement('p')
     const toggleReadButton = document.createElement('button')
-    const removeBook = document.createElement('button')
+    const removeBookButton = document.createElement('button')
 
     toggleReadButton.id = 'readButton'
     toggleReadButton.title = 'Read'
     toggleReadButton.innerHTML = 'Read'
+    toggleReadButton.addEventListener('click', toggleHaveRead)
     if (eachBook.haveRead) {
       toggleReadButton.className = 'haveRead'
     }
@@ -93,11 +104,13 @@ function displayBooks() {
       toggleReadButton.className = 'haveNotRead'
     }
 
-    removeBook.innerHTML = 'X'
-    removeBook.title = 'Remove Book'
-    removeBook.id = 'deleteBookButton'
+    removeBookButton.innerHTML = 'X'
+    removeBookButton.title = 'Remove Book'
+    removeBookButton.id = 'deleteBookButton'
+    removeBookButton.addEventListener('click', removeBook)
 
     bookCard.className = 'bookCard'
+    bookCard.id = eachBook.id
     bookTitle.innerHTML = eachBook.title
     bookCard.appendChild(bookTitle)
     bookAuthor.innerHTML = eachBook.author
@@ -105,19 +118,43 @@ function displayBooks() {
     bookPages.innerHTML = eachBook.pages
     bookCard.appendChild(bookPages)
     bookCard.appendChild(toggleReadButton)
-
-    bookCard.appendChild(removeBook)
-
-    // bookCard.innerHTML = eachBook.title
-    // bookCard.addEventListener('mouseover', changeBackgroundColor)
+    bookCard.appendChild(removeBookButton)
     container.insertBefore(bookCard, container.childNodes[0])
   }
 }
 
-// 2.1 Allow user to submit book info in modal
-submitNewBookButton.onclick = function (event) {
-  event.preventDefault()
-  const { form } = event.target
+// 4. Allow user to change read status of books on button press
+function toggleHaveRead() {
+  // Toggle read status of current book
+  const bookCardId = parseInt(this.parentElement.id)
+  const index = myLibrary.findIndex((book) => book.id === bookCardId)
+  console.log('index...', index)
+  const currentStatus = myLibrary[index].haveRead
+  console.log(currentStatus)
+  myLibrary[index] = {
+    ...myLibrary[index],
+    haveRead: !currentStatus,
+  }
+  displayBooks()
+}
+
+// 5. Allow user to delete book from library on button press
+function removeBook() {
+  const bookCardId = parseInt(this.parentElement.id)
+  const index = myLibrary.findIndex((book) => book.id === bookCardId)
+  console.log('index...', index)
+  myLibrary.splice(index, 1)
+  displayBooks()
+}
+
+// 6. Store users library in local storage
+
+// Run displayBook function on window load
+// window.onload = displayBook
+displayBooks()
+
+function addBookToLibrary(form) {
+  // do stuff here
   const id = myLibrary.length
   let bookObject = new Book(id)
   for (const eachInput of form) {
@@ -140,20 +177,12 @@ submitNewBookButton.onclick = function (event) {
   displayBooks()
 }
 
-// 2.2 Hide modal after user submits new book
-
-// 3. On myLibrary change update books that are displayed
-// 4. Allow user to change read status of books on button press
-// 5. Allow user to delete book from library on button press
-// 6. Store users library in local storage
-
-// Run displayBook function on window load
-// window.onload = displayBook
-displayBooks()
-
-// Function that loops through the array and displays each book on the page.
-function addBookToLibrary() {
-  // do stuff here
+// 2.1 Allow user to submit book info in modal
+// 2.2 Hide modal after user submits new book?
+submitNewBookButton.onclick = function (event) {
+  event.preventDefault()
+  const { form } = event.target
+  addBookToLibrary(form)
 }
 
 // const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'not read yet')
