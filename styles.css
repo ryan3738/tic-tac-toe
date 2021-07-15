@@ -398,6 +398,13 @@ button:active{
   padding: 1rem;
 }
 
+.haveRead{
+  border-color: green;
+}
+.haveNotRead{
+  border-color: red;
+}
+
 /* #addBookButton { */
   /* position: fixed; Stay in place */
   /* z-index: 1; Sit on top */
