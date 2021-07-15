@@ -388,7 +388,7 @@ button:active{
 .bookCard{
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   background: var(--card-color);
   border: 2px solid var(--border-color);
   box-shadow: var(--box-shadow);
