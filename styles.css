@@ -33,8 +33,6 @@ html,
 body {
 	margin:0;
 	padding:0;
-  width: 100%;
-  height: 100%;
 }
 /* /END RESET */
 body {
@@ -171,34 +169,40 @@ html[xmlns] .clearfix {
   --color-700: #303a4e;
   --color-800: #1c2330;
   --color-900: #050c15;
-}
 
+  /* CSS HSL */
+--dark-purple: hsla(331, 28%, 16%, 1);
+--medium-turquoise: hsla(176, 56%, 55%, 1);
+--blue-violet-crayola: hsla(257, 46%, 59%, 1);
+--naples-yellow: hsla(50, 100%, 71%, 1);
+--atomic-tangerine: hsla(19, 90%, 70%, 1);
 
+--brown-coffee: #4A2C2A;
+--metallic-bronze: #9F6841;
+--burlywood: #e0bb82;
+--satin-sheen-gold: #d2a146;
+--metallic-orange: #DA680F;
 
-  body{
-  color: var(--color-50);;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-width: 100%;
-  min-height: 100vh;
-  height: 100vh;
-  width: 100vw;
-  background: var(--color-900);
-	text-align: center;
-	font-size: 1rem;
+--background-color: var(--brown-coffee);
+--card-color: var(--burlywood);
+--border-color: var(--metallic-bronze);
+--highlight-color: var(--metallic-orange);
+--accent-color: var(--satin-sheen-gold);
+
+--box-shadow:  rgba(196, 166, 166, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
 
 }
 
  /* The Modal (background) */
 .modal {
   /* Hidden by default */
-  /* display: none; */
+  display: none;
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
   left: 0;
   top: 0;
+  border-radius: 6px;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
@@ -213,6 +217,7 @@ html[xmlns] .clearfix {
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
+  border-radius: 6px;
   width: 80%; /* Could be more or less, depending on screen size */
   max-width: 666px;
 }
@@ -238,41 +243,21 @@ html[xmlns] .clearfix {
   height: auto;
 }
   main{
+  text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  min-height: 100%;
-  width: 100vw;
-  height: auto;
-  background: var(--color-50);
+  min-height: 100vh;
+  width: 100%;
+  height: 100%;
+  background: var(--background-color);
   padding: 1rem;
   /* margin: 1rem; */
 
 
 }
 
-
-
-/* #display{
-  grid-area: display;
-  display: block;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-  background: var(--color-100);
-  border-radius: 0.375rem;
-  color: black;
-  margin: 1;
-  padding: 1rem;
-  font-size: 1.125rem;
-  min-height: 3rem;
-  height: auto;
-  max-width: calc(400px - 2rem);
-  width: 100%;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-} */
 
 /* Form styles */
 fieldset{
@@ -306,24 +291,26 @@ button{
   /* margin: 1rem; */
   /* aspect-ratio: 1; */
   padding: 0.25rem;
-  background: maroon;
-  color: yellow;
+  margin: 0.75rem;
+  background: #d2a146;
+  color: var(--brown-coffee);
   transition: all 0.3s;
-  border: 0.125rem solid var(--color-900);
-  box-shadow: rgba(196, 166, 166, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  border: 0.125rem solid var(--border-color);
+  box-shadow: var(--box-shadow);
   opacity: 1;
 }
 button:hover, :focus{
   opacity: 0.8;
-  border-color: blue;
-  /* background: lightgray; */
+  border-color: var(--highlight-color);
+  padding: .5rem;
+  margin: .5rem;
   /* color: yellow; */
 }
 
 button:active{
   opacity: 0.5;
   border : 0.25rem solid blue;
-  color: var(--color-500);
+  /* color: var(--color-500); */
 
 }
 
@@ -399,8 +386,13 @@ button:active{
 }
 
 .bookCard{
-  background: black;
-  border: 1px solid #888;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: var(--card-color);
+  border: 2px solid var(--border-color);
+  box-shadow: var(--box-shadow);
+  border-radius: 6px;
   height: 300px;
   width: 225px;
   padding: 1rem;
