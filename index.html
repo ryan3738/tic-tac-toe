@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ryan's Library</title>
+    <title>My Library</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -14,6 +14,7 @@
   <!-- <button type="button" id="addBookButton" class="button card">
     +
   </button> -->
+    <h1 id="pageTitle">My Library</h1>
 
 
 <div id="container">
@@ -36,49 +37,48 @@
   <!-- 6. Store users library in local storage -->
 
 </main>
+
 <!-- 2. Modal that allows user to input new book info and submit-->
 <div id="newBookModal" class="modal">
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close" id="closeModal" title="Close">&times;</span>
     <h2>Add a New Book</h2>
-    <form>
-      <fieldset>
-        <label htmlFor="title">Title
+    <form id="newBookForm">
+      <fieldset >
+
           <input
           required
           type="text"
           id="title"
           name="title"
-          placeholder='title'
+          placeholder='Title'
           value="The Hobbit"
           autoComplete='title'
           />
-        </label>
-        <label htmlFor="author">Author
+
           <input
           required
           type="text"
           id="author"
           name="author"
-          placeholder='author'
+          placeholder='Author'
           value="Tolkien"
           autoComplete='author'
           />
-        </label>
-        <label htmlFor="pages">Pages
+
           <input
           required
           type="number"
           id="pages"
           name="pages"
-          placeholder='pages'
+          placeholder='Pages'
           value=243
           autoComplete='pages'
           />
-        </label>
-        <label htmlFor="haveRead">Read
-          <input
+
+        <label type='checkbox' htmlFor="haveRead">Read
+          <input class="checkbox"
           type="checkbox"
           id="haveRead"
           name="haveRead"

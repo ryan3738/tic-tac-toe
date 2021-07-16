@@ -5,6 +5,7 @@ const modal = document.getElementById('newBookModal')
 
 // Get the button that opens the modal
 const addBookButton = document.getElementById('addBookButton')
+const newBookForm = document.getElementById('newBookForm')
 
 // Get the <span> element that closes the modal
 const span = document.getElementById('closeModal')
@@ -18,7 +19,7 @@ function getRandomInt(minParam, maxParam) {
   return Math.floor(Math.random() * (max - min) + min) // The maximum is exclusive and the minimum is inclusive
 }
 
-console.log('modal', modal)
+console.log('newBookForm', newBookForm)
 
 const starterLibrary = [
   {
@@ -236,8 +237,11 @@ function addBookToLibrary(form) {
   updateLibrary(bookObject)
 }
 
-function randomizeForm(){
-  
+function randomizeForm() {
+  const randomBook = starterLibrary[getRandomInt(0, starterLibrary.length)]
+  for (const each of newBookForm) {
+    each.value = randomBook[each.name]
+  }
 }
 
 // 2.1 Allow user to submit book info in modal
@@ -246,6 +250,7 @@ submitNewBookButton.onclick = function (event) {
   event.preventDefault()
   const { form } = event.target
   addBookToLibrary(form)
+  randomizeForm()
 }
 
 function initializeLibrary() {
