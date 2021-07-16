@@ -220,7 +220,7 @@ html[xmlns] .clearfix {
   padding: 20px;
   border: 1px solid #888;
   border-radius: var(--radius);
-  width: 40%; /* Could be more or less, depending on screen size */
+  width: 80vw; /* Could be more or less, depending on screen size */
   max-width: 666px;
 }
 
@@ -243,7 +243,7 @@ html[xmlns] .clearfix {
   margin: none;
   width: 100%;
   height: auto;
-  padding: 1rem;
+  padding: 1rem 0;
   background: var(--color-200);
 }
 
