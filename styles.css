@@ -183,7 +183,7 @@ html[xmlns] .clearfix {
 --satin-sheen-gold: #d2a146;
 --metallic-orange: #DA680F;
 
---background-color: var(--brown-coffee);
+--background-color: var(--color-50);
 --card-color: var(--burlywood);
 --border-color: var(--metallic-bronze);
 --highlight-color: var(--metallic-orange);
@@ -257,7 +257,6 @@ html[xmlns] .clearfix {
 
 
 }
-
 
 /* Form styles */
 fieldset{
