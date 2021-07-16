@@ -34,6 +34,7 @@ function getId() {
 
 function addSomeBooks() {
   // Create function to populate some books for testing
+  const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'not read yet')
 }
 
 // 1. Make event listener for button to show modal for new book info
@@ -184,5 +185,3 @@ submitNewBookButton.onclick = function (event) {
   const { form } = event.target
   addBookToLibrary(form)
 }
-
-// const theHobbit = new Book('The Hobbit', 'J.R.R. Tolkien', 295, 'not read yet')
