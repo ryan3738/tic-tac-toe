@@ -1,9 +1,9 @@
 {
-  "name": "etch-a-sketch",
+  "name": "tic-tac-toe",
   "author": "Ryan Fraser",
-  "description": "An etch a sketch like webpage to test out dom manipulation",
+  "description": "A tic tac toe game",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.27.0",

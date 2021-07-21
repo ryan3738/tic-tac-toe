@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Library</title>
+    <title>Tic Tac Toe</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -14,85 +14,45 @@
   <!-- <button type="button" id="addBookButton" class="button card">
     +
   </button> -->
-    <h1 id="pageTitle">My Library</h1>
+    <h1 id="pageTitle">Tic Tac Toe</h1>
+    <div id="display"></div>
 
+<div id="gameBoardWrapper">
 
-<div id="container">
-
-  <!-- <div class="bookCard"></div>
-    <div class="bookCard"></div>
-    <div class="bookCard"></div> -->
-    <div class="cardWrapper" id="notBook">
-
-      <!-- 1. Button for user to show new book modal -->
-      <button type="button" id="addBookButton" title="Add Book">
-        +
-      </button>
+  <div id="gameBoard">
+    <div class="gridBox" id='0'>
+X
     </div>
-    <!-- 3. Display books in myLibrary array -->
-    <!-- 4. Allow user to change read status of book-->
-    <!-- 5. Allow user to delete book from library -->
-
+    <div class="gridBox" id='1'>
+O
+    </div>
+    <div class="gridBox" id='2'>
+X
+    </div>
+    <div class="gridBox" id='3'>
+    O
+    </div>
+    <div class="gridBox" id='4'>
+O
+    </div>
+    <div class="gridBox" id='5'>
+X
+    </div>
+    <div class="gridBox" id='6'>
+O
+    </div>
+    <div class="gridBox" id='7'>
+X
+    </div>
+    <div class="gridBox" id='8'>
+O
+    </div>
   </div>
-  <!-- 6. Store users library in local storage -->
+</div>
 
 </main>
 
-<!-- 2. Modal that allows user to input new book info and submit-->
-<div id="newBookModal" class="modal">
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close" id="closeModal" title="Close">&times;</span>
-    <h2>Add a New Book</h2>
-    <form id="newBookForm">
-      <fieldset >
 
-          <input
-          required
-          type="text"
-          id="title"
-          name="title"
-          placeholder='Title'
-          value="The Hobbit"
-          autoComplete='title'
-          />
-
-          <input
-          required
-          type="text"
-          id="author"
-          name="author"
-          placeholder='Author'
-          value="Tolkien"
-          autoComplete='author'
-          />
-
-          <input
-          required
-          type="number"
-          id="pages"
-          name="pages"
-          placeholder='Pages'
-          value=243
-          autoComplete='pages'
-          />
-
-        <label type='checkbox' htmlFor="haveRead">Read
-          <input class="checkbox"
-          type="checkbox"
-          id="haveRead"
-          name="haveRead"
-          autoComplete='read'
-
-          />
-        </label>
-        <button
-        type="submit"
-        id="submitNewBookButton" class="button">Submit</button>
-      </fieldset>
-    </form>
-  </div>
-</div>
     <script src="scripts.js"></script>
 </body>
 
