@@ -1,12 +1,31 @@
-const gameBoard = document.querySelector('#gameBoard')
+const gameBoards = document.querySelector('#gameBoard')
+const gridBoxes = gameBoards.querySelectorAll('div')
+
 
 const gameBoard = (() => {
     const gameBoardArray = []
-    const add = (a, b) => a + b;
+    // Create function to play a position
+    const selectPosition = (position, marker) => {
+        const positionInt = parseInt(position)
 
+        if (gameBoardArray.some((gridBox) => gridBox.id === positionInt)){
+            return
+        }
+
+        if(!gameBoardArray.position){
+            gameBoardArray.push({ id: positionInt, value: marker })
+            const gridBox = document.getElementById(`${position}`)
+            gridBox.innerHTML = `${marker}`
+            // console.log('Game Board:',gameBoardArray);
+        }
+    }
+
+
+    const win = () => {
+
+}
     return {
-        add,
-
+        selectPosition
     };
 })();
 
@@ -29,3 +48,21 @@ const Player = (name, level) => {
     const die = () => {
         // uh oh
     };
+}
+
+function filterKeyPress(value) {
+    // console.log(this);
+    if (this.className === "gridBox"){
+        // console.log('this', this);
+        gameBoard.selectPosition(this.id, 'X')
+    }
+
+}
+// console.log(gameBoard.selectPosition(1, 'X'));
+
+gridBoxes.forEach((gridBox) => {
+    console.log('gridBox:',gridBox);
+    // console.log('this:',this);
+    gridBox.addEventListener('click', filterKeyPress)
+})
+
