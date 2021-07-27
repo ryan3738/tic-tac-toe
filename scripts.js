@@ -4,7 +4,7 @@ const gridBoxes = gameBoards.querySelectorAll('div');
 const gameBoard = (() => {
   const gameBoardArray = [];
   // Create function to play a position
-  const selectPosition = (position, marker) => {
+  const markPosition = (position, marker) => {
     const positionInt = parseInt(position);
 
     if (gameBoardArray.some((gridBox) => gridBox.id === positionInt)) {
@@ -18,43 +18,58 @@ const gameBoard = (() => {
       // console.log('Game Board:',gameBoardArray);
     }
   };
+  const clearBoard = () => {};
 
-  const win = () => {};
   return {
-    selectPosition,
+    markPosition,
+    clearBoard,
+    gameBoardArray,
   };
 })();
 
 const displayController = (() => {
-  const gameBoardArray = [];
+  const displayArray = [];
 
   return {};
 })();
+
+const Player = (name, marker) => {
+  const getName = () => name;
+  const getMarker = () => marker;
+  return { getName, getMarker };
+};
 
 const playGame = (() => {
-  const gameBoardArray = [];
-
-  return {};
-})();
-
-const Player = (name, level) => {
-  const health = level * 2;
-  const getLevel = () => level;
-  const getName = () => name;
-  const die = () => {
-    // uh oh
+  // add function that creates player 1 & 2 X's and O's
+  const player1 = Player('Player 1', 'X');
+  const player2 = Player('Player 2', 'O');
+  let turn;
+  const toggleTurn = () => {
+    turn !== player1 ? (turn = player1) : (turn = player2);
   };
-};
+  // add function that starts a new game
+  const startNewGame = () => {
+    // Clear game board
+    // Create player 1 and player 2
+    // Assing X's and O's to each
+  };
+  // add function that plays a turn
+  const playTurn = () => {};
+  // add function to check when game is over win or tie
+
+  const win = () => {};
+  return { startNewGame, playTurn, player1, player2 };
+})();
 
 function filterKeyPress(value) {
   // console.log(this);
   if (this.className === 'gridBox') {
     // console.log('this', this);
-    gameBoard.selectPosition(this.id, 'X');
+    gameBoard.markPosition(this.id, 'X');
   }
 }
 
-// console.log(gameBoard.selectPosition(1, 'X'));
+// console.log(gameBoard.markPosition(1, 'X'));
 
 gridBoxes.forEach((gridBox) => {
   console.log('gridBox:', gridBox);
