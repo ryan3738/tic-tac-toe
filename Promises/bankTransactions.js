@@ -2,47 +2,49 @@ const { VALID, INVALID, buildTransaction } = require('./utils/transactions');
 
 function makeTransactions(accounts, transactions) {
   // TODO: implement this function
-  const newAccountBalances = accounts;
-  console.log('Account Balances:', accounts);
-  console.log('New Account Balances:', newAccountBalances);
+  // TODO: implement error handling
+  async function processTransactions(accountsPromise) {
+    const newAccountBalances = accountsPromise;
+    // Return accounts unmodified if no transactions are present
+    if (transactions.length <= 0) {
+      console.log('No Transactions Submitted...');
+      return newAccountBalances;
+    }
 
-  if (transactions.length <= 0) {
-    console.log('No Transactions Submitted...');
-    return newAccountBalances;
-  }
+    if (transactions.length > 0) {
+      console.log('Processing Transactions...');
 
-  if (transactions.length > 0) {
-    console.log('Processing Transactions...');
-    (async () => {
       for await (const transaction of transactions) {
         const { from, to, amount, validate } = transaction;
-        console.log('---TRANSACTION---', transaction);
-        //  TODO: For each transation check if transaction is validated
+        // console.log('---TRANSACTION---', transaction);
+        //  Validate each transaction using validate() function
         await validate()
           .then(() => {
             console.log(
               `---Transaction Approved for $${amount} from account #${from} to account #${to}---`
             );
-            // console.log('FROM:', from);
-            // console.log('TO:', to);
-            // console.log('AMOUNT', amount);
-            // console.log('Current FROM Balance', newAccountBalances[from]);
-            // console.log('Current TO Balance', newAccountBalances[to]);
-            //  TODO: If transaction is validated change to account
+            //  If transaction is validated change to account
             newAccountBalances[from] -= amount;
-            //  TODO: If transaction is validated change from account
+            //  If transaction is validated change from account
             newAccountBalances[to] += amount;
             console.log(
-              'Transaction complete, here are the updated balances',
+              'Transaction complete, updated account balances',
               newAccountBalances
             );
           })
-          .catch((err) => console.error('Transaction Error', err));
+          .catch((err) =>
+            console.error(
+              `---Transaction Rejected for $${amount} from account #${from} to account #${to}---`,
+              `---Reason: ${err}`
+            )
+          );
       }
-    })();
+      console.log('Transactions Complete...');
+      return newAccountBalances;
+    }
   }
 
-  return Promise.resolve(newAccountBalances);
+  return Promise.resolve((() => processTransactions(accounts))());
 }
 
 module.exports = { makeTransactions };
@@ -80,7 +82,7 @@ module.exports = { makeTransactions };
     4: 30,
   };
   const transactions = [
-    buildTransaction(1, 2, 70, VALID, 10),
+    buildTransaction(1, 2, 70, INVALID, 10),
     buildTransaction(4, 3, 100, VALID, 30),
     buildTransaction(2, 4, 50, VALID, 15),
   ];
@@ -96,4 +98,5 @@ module.exports = { makeTransactions };
     accounts,
     transactions
   );
+  // console.log('ACCOUNTS AFTER TRANSACTIONS', await accountsAfterTransactions);
 })();
