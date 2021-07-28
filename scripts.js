@@ -3,7 +3,11 @@ const gridBoxes = gameBoards.querySelectorAll('div');
 
 const gameBoard = (() => {
   const gameBoardArray = [];
+
   // Create function to play a position
+  // const changeBoxContents = () => {
+
+  // };
   const markPosition = (position, marker) => {
     const positionInt = parseInt(position);
 
@@ -18,7 +22,14 @@ const gameBoard = (() => {
       // console.log('Game Board:',gameBoardArray);
     }
   };
-  const clearBoard = () => {};
+  const clearBoard = () => {
+    for (const gridBox of gridBoxes) {
+      // const arrayId = gameBoardArray.findIndex((item) => item.id === id);
+      gameBoardArray.splice(0, gameBoardArray.length);
+      gridBox.innerHTML = '';
+    }
+    return `Game Board Cleared`;
+  };
 
   return {
     markPosition,
