@@ -240,18 +240,6 @@ html[xmlns] .clearfix {
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
 
-  --brown-coffee: #4a2c2a;
-  --metallic-bronze: #9f6841;
-  --burlywood: #e0bb82;
-  --satin-sheen-gold: #d2a146;
-  --metallic-orange: #da680f;
-
-  --background-color: var(--color-50);
-  --card-color: var(--burlywood);
-  --border-color: var(--metallic-bronze);
-  --highlight-color: var(--metallic-orange);
-  --accent-color: var(--satin-sheen-gold);
-
   --box-shadow: rgba(196, 166, 166, 0.16) 0px 3px 6px,
     rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
@@ -308,7 +296,9 @@ html[xmlns] .clearfix {
   width: 100%;
   height: auto;
   padding: 1rem 0;
-  background: var(--color-200);
+  background: var(--color-700);
+  color: var(--yellow);
+  border: 2px solid black;
 }
 
 main {
@@ -320,7 +310,7 @@ main {
   min-height: 100vh;
   width: 100%;
   height: 100%;
-  background: var(--background-color);
+  background: var(--color-50);
   color: black;
   /* padding: 1rem; */
   /* margin: 1rem; */
@@ -371,27 +361,27 @@ button {
   /* margin: 1rem; */
   /* aspect-ratio: 1; */
   padding: 0.25rem;
-  margin: 0.75rem;
-  background: #d2a146;
-  color: var(--brown-coffee);
-  transition: all 0.3s;
-  border: 0.125rem solid var(--border-color);
+  margin: 2rem;
+  background: var(--cyan);
+  color: var(black);
+  transition: all 0.1s;
+  border: 0.125rem solid var(var(--cyan));
   box-shadow: var(--box-shadow);
   opacity: 1;
 }
 
-button:hover,
-button:focus {
+button:hover {
   opacity: 0.8;
-  border-color: var(--highlight-color);
   padding: 0.5rem;
-  margin: 0.5rem;
+  margin: 1.75rem;
   /* color: yellow; */
 }
 
-button:active {
-  opacity: 0.5;
-  border: 0.25rem solid blue;
+button:active,
+button:focus {
+  opacity: 0.7;
+  /* margin: 1.5rem; */
+  outline: 0.25rem solid var(--indigo);
   /* color: var(--color-500); */
 }
 
@@ -400,9 +390,10 @@ button:active {
   justify-content: center;
   align-items: center;
   background: var(--color-100);
+
   height: 5rem;
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
   font-size: 2rem;
 }
 #display {
@@ -451,9 +442,10 @@ button:active {
   justify-content: center;
   align-items: center;
   font-size: 5rem;
+  font-weight: 900;
 }
 
 .gridBox:hover {
-  opacity: 0.9;
+  opacity: 0.94;
   cursor: pointer;
 }
